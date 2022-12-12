@@ -34,8 +34,8 @@
         #dltBtn {
             width: auto;
         }
-        #editBtn{
-            margin-left: 2%;
+        #editbtn{
+            margin-left: 4%;
         }
         .form-control{
             display: inline;
@@ -78,7 +78,8 @@
     crossorigin="anonymous"></script>
 
 <script>
-
+    
+    let msg = document.getElementById('msg')
     function update() {
         console.log('Updating list...')
         var input = document.getElementById('input').value;
@@ -110,7 +111,9 @@
                 <tr>
                     <th scope="row">${index + 1}</th>
                     <td>${element[0]}</td>
-                    <td><button class="btn btn-danger" id="dltBtn" onclick="dltme(${index})">Delete</button></td>
+                    <td><button class="btn btn-danger" id="dltBtn" onclick="dltme(${index})">Delete</button>
+                    <button class="btn btn-success" id="editbtn" onclick="editme(${index})">Edit</button>
+                        </td>
                     </tr>
                     `
         });
@@ -128,6 +131,10 @@
         taskArr.splice(itemIndex, 1)
         localStorage.setItem('task', JSON.stringify(taskArr))
         data();
+    }
+
+    function editme(itemIndex){
+        alert(itemIndex)
     }
 
 </script>
